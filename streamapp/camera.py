@@ -41,9 +41,9 @@ class MaskDetect(object):
 	def __del__(self):
 		cv2.destroyAllWindows()
 	def get_frame(self):
-		net_mask = cv2.dnn.readNet("C:/Users/vaishnavi venkatesan/Desktop/ObjectDetection/combined one/yolov3_mask_last.weights", "C:/Users/vaishnavi venkatesan/Desktop/ObjectDetection/combined one/yolov3_mask.cfg")
+		net_mask = cv2.dnn.readNet("yolov3_mask_last.weights", "yolov3_mask.cfg")
 		classes_mask = []
-		with open("C:/Users/vaishnavi venkatesan/Desktop/ObjectDetection/combined one/coco -1.names", "r") as f:
+		with open("coco -1.names", "r") as f:
 			classes_mask = [line.strip() for line in f.readlines()]  
 			layer_names_mask = net_mask.getLayerNames()
 			output_layer_mask = [layer_names_mask[i[0] - 1] for i in net_mask.getUnconnectedOutLayers()]
@@ -93,9 +93,9 @@ class objectDetect(object):
 	def __del__(self):
 		cv2.destroyAllWindows()
 	def get_frame(self):
-		net = cv2.dnn.readNet("C:/Users/vaishnavi venkatesan/Desktop/ObjectDetection/combined one/yolov3.weights", "C:/Users/vaishnavi venkatesan/Desktop/ObjectDetection/combined one/yolov3.cfg")
+		net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 		classes = []
-		with open("C:/Users/vaishnavi venkatesan/Desktop/ObjectDetection/combined one/coco.names", "r") as f:
+		with open("coco.names", "r") as f:
 			classes = [line.strip() for line in f.readlines()]  
 			layer_names= net.getLayerNames()
 			output_layer = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
